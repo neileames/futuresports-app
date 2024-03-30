@@ -1,38 +1,571 @@
-.App {
-  text-align: center;
+
+/********************/
+/* global           */
+/********************/
+* {
+    box-sizing: border-box;
+    background-color: #FAFAFA;
+    font-family: Roboto, 'Times New Roman', Arial, Helvetica, 'sans-serif';
+    margin: 0;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.red {
+    color: red;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.blue {
+    color: blue;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+/********************/
+/* header           */
+/********************/
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: var(--headerHeight);
+    z-index: 999;
+    background-color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.headerHeight {
+    height: var(--headerHeight);
+}
+/********************/
+/* logo             */
+/********************/
+
+#logo {
+    display: block;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+/********************/
+/* heading 1        */
+/********************/
+
+.no-wrap {
+    white-space: nowrap;
 }
+
+/********************/
+/* hamburger        */
+/********************/
+.bar {
+    width: 4.5vw;
+    height: .6vw;
+    background-color: black;
+    margin: 1vw;
+    transition: 0.4s;
+}
+
+/* Hide hamburger related checkbox */
+#hamburgerCheckbox {
+    display: none;
+}
+
+#hamburger_image {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    float: right;
+    display: block;
+    margin: 22% 10% 0 0;
+}
+
+/* Show the navigation links when the hamburger menu is clicked */
+#hamburgerCheckbox:checked + nav {
+    display: block;
+}
+
+/********************/
+/* search form      */
+/********************/
+
+#search_form {
+    display: flex;
+    flex-direction: row;
+    font-size: 1.1em;
+    text-align: center;
+    border: 1px solid white;
+    /* margin: 0 0 0 40%; */
+    padding: 3% 0 3% 0;
+}
+
+    #search_form input {
+        font-size: 1em;
+        padding: 0 0 0 2vw;
+        border: 1px solid #e7e7e7;
+        border-top-left-radius: 9999px;
+        border-bottom-left-radius: 9999px;
+        border-top-right-radius: 0;
+        border-bottom-right-radius: 0;
+        outline: none;
+    }
+
+        #search_form input[type="search"]::placeholder {
+            font-style: italic;
+        }
+
+        #search_form input:focus {
+            border: 1px solid red;
+        }
+
+    #search_form button {
+        color: white;
+        background-color: red;
+        border: 1px solid red;
+        border-top-left-radius: 0;
+        border-bottom-left-radius: 0;
+        border-top-right-radius: 9999px;
+        border-bottom-right-radius: 9999px;
+    }
+
+/********************/
+/* navigation       */
+/********************/
+
+/* Style the links inside the navigation bar */
+nav ul li {
+    text-decoration: none;
+    color: blue;
+    cursor: pointer;
+}
+
+/* Change the color of links on hover using mouse */
+nav a:hover {
+    background-color: black;
+    color: white;
+    outline: none;
+}
+
+/* Change the color of links on focus using the tab key */
+nav a:focus {
+    background-color: black;
+    color: white;
+    outline: none;
+}
+
+/********************/
+/* main             */
+/********************/
+
+main {
+    width: 100%;
+    text-align: center; /* required to center sections */
+}
+
+/********************/
+/* sections         */
+/********************/
+
+.section {
+    background-color: white;
+    border: 1px solid #e7e7e7;
+    border-radius: 20px 20px 20px 20px;
+    margin: 0 1% 1.5% 1.5%;
+    overflow: hidden;
+    text-align: center;
+}
+
+.aside {
+    background-color: white;
+    text-align: center;
+    border: 1px solid #e7e7e7;
+    border-radius: 20px 20px 20px 20px;
+    overflow: hidden;
+}
+
+
+/* Style the container */
+.img_crowd_container {
+    max-width: 100%; /* Ensure the container doesn't exceed its parent's width */
+    height: auto; /* Allow the container's height to adjust proportionally */
+    overflow: hidden; /* Hide any overflowing content */
+}
+
+    /* Style the image */
+    .img_crowd_container img {
+        max-width: 100%; /* Ensure the image doesn't exceed the container's width */
+        height: auto; /* Allow the image's height to adjust proportionally */
+        display: block; /* Remove any extra spacing below the image */
+        margin: 0 auto; /* Center the image horizontally in the container */
+        border-top-left-radius: 20px;
+        border-bottom-left-radius: 20px;
+        border-top-right-radius: 20px;
+        border-bottom-right-radius: 20px;
+    }
+
+.list {
+    list-style-type: none;
+    margin: 10px 0 0 0;
+    padding: 0;
+}
+
+h2 {
+    margin: 5px 0 5px 0;
+    color: blue;
+}
+
+h3 {
+    margin: 10px;
+    color: black;
+}
+
+#filler {
+    height: var(--headerHeight);
+}
+
+/* Style the iframe to fit the container */
+.map-container {
+    position: relative;
+    height: 300px;
+    margin: 20px auto 20px auto;
+    overflow: hidden;
+    border: 1px solid blue;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+}
+
+.map-iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+.sponsors {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(40%, 1fr));
+    gap: 2%;
+    width: 95%;
+    margin: 2%;
+    border: none;
+}
+
+.sponsor-item {
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+    .sponsor-item img {
+        width: 100%;
+        height: auto;
+        display: block;
+    }
+
+/*************/
+/* carousel  */
+/*************/
+
+.carousel {
+    position: relative;
+    width: 100%;
+    padding: 10px 40px;
+    border: 1px solid #ccc;
+    border-radius: 15px;
+    background: #eee;
+}
+
+.carousel img {
+    width: 130px;
+    height: 130px;
+    display: inline-block;
+}
+
+.arrow {
+    position: absolute;
+    top: 60px;
+    padding: 0;
+    background-color: #ddd;
+    border-radius: 15px;
+    border: 1px solid red;
+    font-size: 24px;
+    line-height: 24px;
+    color: #444;
+    display: block;
+}
+
+.arrow:focus {
+    outline: none;
+}
+
+.arrow:hover {
+    background-color: white;
+    cursor: pointer;
+}
+
+.prev {
+    color: red;
+    left: 7px;
+}
+
+.next {
+    color: red;
+    right: 7px;
+}
+
+.gallery {
+    width: 95%;
+    padding: 0 20px 0 0;
+    overflow: hidden;
+}
+
+.li-container {
+    height: 100%; /* Adjust the height as needed */
+    width: 100%;
+    overflow-y: auto; /* Enable vertical scrolling. */
+}
+
+.li-container table {
+    margin: 10px;
+    width: 90%;
+    border-collapse: collapse;
+    border: 1px solid #ccc;
+    background-color: white;
+}
+
+.li-container section {
+    margin: 0 1% 1.5% 1.5%;
+    width: 90%;
+    overflow: hidden;
+}
+
+.li-container p {
+    white-space: normal;
+    text-align: left;
+    padding: 3px;
+}
+
+/* Center the "figure" and "table" within the "data" section */
+.data {
+    display: inline-block;
+}
+
+form label {
+    margin-bottom: 10px;
+}
+
+btn_submit button {
+    background-color: blue;
+    color: #fff;
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+footer {
+    display: block;
+    text-align: right;
+    width: 100%;
+}
+
+footer p {
+    width: 300px;
+    height: 20px;
+}
+
+/****************************************************************************************************/
+/****************************************************************************************************/
+/****************************************************************************************************/
+/*****************************************/
+/*                                       */
+/*  smaller screens (max-width: 1000px)  */
+/*                                       */
+/*****************************************/
+
+/* @media (max-width: 1001px) { */
+@media only screen and (max-width: 700px) {
+
+    #logo {
+        height: 6vw;
+        margin: 1vh 0 0 2vw;
+        width: 6vw;
+    }
+
+    header {
+        display: grid;
+        grid-template-columns: 10VW 80VW 10VW;
+        grid-template-rows: auto;
+    }
+
+    nav ul li {
+        grid-column: 1;
+    }
+
+    h1 {
+        grid-column: 2;
+        justify-self: center;
+        font-size: 2em;
+        white-space: nowrap;
+    }
+
+    #hamburger_image {
+        grid-column: 3;
+    }
+
+    #search_container {
+        grid-row: 2;
+        grid-column: 2;
+        justify-self: center;
+    }
+
+    #search_form {
+        font-size: .9em;
+    }
+
+    nav {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 10px;
+        display: none;
+        position: fixed;
+        top: 4vw;
+        right: 9vw;
+        margin-right: 2vw;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Add a shadow for visibility */
+    }
+
+    /* Style the links inside the navigation bar */
+        nav ul {
+            padding: 1vw 1vw;
+        }
+
+            nav ul li {
+                display: block;
+                padding-top: 1vw;
+                padding-right: 2vw;
+                padding-bottom: 1vw;
+                padding-left: 2vw;
+            }
+
+    .gallery {
+        height: 200px;
+    }
+
+    .map-container {
+        width: 100%;
+    }
+
+    /********************/
+    /* section, aside   */
+    /********************/
+
+    .section, .aside {
+        margin-bottom: 3vw;
+    }
+}
+/* end smaller screens */
+
+
+/****************************************/
+/*                                      */
+/*  larger screens (min-width: 1001px)  */
+/*                                      */
+/****************************************/
+
+/* @media (min-width: 1001px) { */
+@media only screen and (min-width: 700px) {
+
+    #logo {
+        height: 2.5vw;
+        margin: 1vw 0 0 1vw;
+        width: 2.5vw;
+    }
+
+    header {
+        display: grid;
+        grid-template-columns: 19VW 31VW 50vw;
+        grid-template-rows: auto;
+    }
+
+    nav ul li {
+        grid-column: 1;
+    }
+
+    h1 {
+        grid-column: 2;
+        justify-self: center;
+        font-size: 3em;
+        white-space: nowrap;
+    }
+
+    nav {
+        grid-column: 3;
+    }
+
+    #search_container {
+        grid-column: 2;
+        grid-row: 2;
+    }
+
+    /* Hide hamburger */
+    #hamburger_image {
+        display: none;
+    }
+
+    /********************/
+    /* search form      */
+    /********************/
+
+    #search_container {
+        justify-self: center;
+    }
+
+    #search_form {
+        font-size: 1.1vw;
+    }
+
+        #search_form input {
+            width: 9vw;
+        }
+
+    /********************/
+    /* navigation menu  */
+    /********************/
+    nav ul {
+        display: flex;
+        flex-direction: row;
+    }
+
+    /* Style the links inside the navigation bar */
+    nav ul li {
+        display: block;
+        text-align: center;
+        padding: 2vw 1vw 0 1vw;
+
+    }
+
+    .gallery {
+        height: 400px;
+    }
+
+    .map-container 
+    {
+        width: 70%;
+    }
+
+    .section {
+        float: left;
+        margin: 0 1% 1.5% 1.5%;
+        width: 63%;
+        overflow: hidden;
+    }
+
+    .aside {
+        margin: 0 1.5% 1.5% 1%;
+        display: inline-block;
+        float: right;
+        width: 32%;
+        overflow: hidden;
+    }
+}
+/* end larger screens */
+

@@ -1,8 +1,9 @@
-import { render, screen } from '@testing-library/react';
-import App from './App';
+// App.test.js
 
-test('renders learn react link', () => {
-  render(<App />);
-  const linkElement = screen.getByText(/learn react/i);
-  expect(linkElement).toBeInTheDocument();
+// tests are in ./src/Components/__test__'.
+
+// if App.test.js is empty, it returns an error.
+
+test('placeholder test', () => {
+    expect(true).toBe(true); // Dummy assertion
 });
