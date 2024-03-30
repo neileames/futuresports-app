@@ -2,7 +2,7 @@
 
 import React, { useEffect, useRef } from 'react';
 
-import NavLinks from "../Navigation/NavLinks"; // Import the custom hook
+import NavLinks from "../Navigation/NavLinks"; // Import the custom hooks
 import Search from "../Search/Search";
 import logo from '../../assets/images/logo.png';
 
@@ -40,7 +40,6 @@ const Header = ({ homeRef, aboutRef, facilitiesRef, locationRef, contactRef, scr
                 <div className="bar"></div>
             </label>
             <input type="checkbox" id="hamburgerCheckbox" />
-
             
                 <NavLinks
                     homeRef={homeRef}
@@ -50,11 +49,9 @@ const Header = ({ homeRef, aboutRef, facilitiesRef, locationRef, contactRef, scr
                     contactRef={contactRef}
                     scrollToSection={scrollToSection}
                 />
-            
-       
+
         </header>
     );
 };
-
 
 export default Header;
