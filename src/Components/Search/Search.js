@@ -22,10 +22,11 @@ function Search() {
 
             if (newCounter > -1) {
                 scrollToOccurrence();
-                setCurrentOccurrenceIndex(currentOccurrenceIndex => currentOccurrenceIndex + 1);
+                //setCurrentOccurrenceIndex(currentOccurrenceIndex => currentOccurrenceIndex + 1);
             }
             setCounter(newCounter);
         }
+    // eslint-disable-next-line
     }, [keyword]);
 
     useEffect(() => {
@@ -151,7 +152,6 @@ function Search() {
     };
 
     const handleSearchButtonClick = () => {
-        console.log('handleSearchButtonClick called');
         scrollToNextOccurrence();
     };
 
